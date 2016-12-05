@@ -50,36 +50,9 @@ namespace FlightsHawk
         private Button createButton;
         private Button updateButton;
         private Button deleteButton;
-        private MenuStrip menuStripMain;
-        private ToolStripMenuItem mainToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem copyToolStripMenuItem;
-        private ToolStripMenuItem pasteToolStripMenuItem;
-        private ToolStripMenuItem cutToolStripMenuItem;
-        private ToolStripMenuItem deleteToolStripMenuItem;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButtonCreateFlight;
-        private ToolStripButton toolStripButtonUpdateFlight;
-        private ToolStripMenuItem createNewFlightToolStripMenuItem;
-        private ToolStripMenuItem updateFlightToolStripMenuItem;
-        private ToolStripMenuItem deleteFlightToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripButton toolStripButtonDelete;
         private GroupBox groupBoxMain;
         private GroupBox groupBoxFields;
         private GroupBox groupBoxList;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripButton toolStripButtonCopyText;
-        private ToolStripButton toolStripButtonPasteText;
-        private ToolStripButton toolStripButtonCutText;
-        private ToolStripButton toolStripButtonDeleteText;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStripMenuItem fieldsToolStripMenuItem;
-        private ToolStripMenuItem listBoxToolStripMenuItem;
         private NotifyIcon notifyIcon1;
         private IContainer components;
         private StatusStrip statusStrip1;
@@ -87,7 +60,16 @@ namespace FlightsHawk
         private ToolStripStatusLabel toolStripStatusLabelTimeNow;
         private ToolStripStatusLabel toolStripStatusLabelDateToday;
         private ToolStripStatusLabel toolStripStatusLabelPerformedActions;
-        private ToolStripMenuItem databaseConnectionToolStripMenuItem;
+        private ToolStripButton toolStripButtonCreateFlight;
+        private ToolStripButton toolStripButtonUpdateFlight;
+        private ToolStripButton toolStripButtonDelete;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton toolStripButtonCopyText;
+        private ToolStripButton toolStripButtonPasteText;
+        private ToolStripButton toolStripButtonCutText;
+        private ToolStripButton toolStripButtonDeleteText;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButtonUpdateView;
         private SqlDataReader dataReader;
 
         //
@@ -138,34 +120,6 @@ namespace FlightsHawk
             this.labelBusinessClassPrice = new System.Windows.Forms.Label();
             this.labelFirstClassPrice = new System.Windows.Forms.Label();
             this.labelDistance = new System.Windows.Forms.Label();
-            this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createNewFlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateFlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteFlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonCreateFlight = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonUpdateFlight = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonCopyText = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPasteText = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonCutText = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDeleteText = new System.Windows.Forms.ToolStripButton();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -175,16 +129,25 @@ namespace FlightsHawk
             this.groupBoxList = new System.Windows.Forms.GroupBox();
             this.groupBoxFields = new System.Windows.Forms.GroupBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.toolStripButtonCreateFlight = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUpdateFlight = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonCopyText = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPasteText = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCutText = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDeleteText = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonUpdateView = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFreeSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBusinessClassPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFirstClassPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistance)).BeginInit();
-            this.menuStripMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.groupBoxMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBoxList.SuspendLayout();
             this.groupBoxFields.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelFlightNumber
@@ -495,210 +458,112 @@ namespace FlightsHawk
             this.labelDistance.TabIndex = 23;
             this.labelDistance.Text = "Distance";
             // 
-            // menuStripMain
+            // groupBoxMain
             // 
-            this.menuStripMain.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mainToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
-            this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(2826, 40);
-            this.menuStripMain.TabIndex = 43;
-            this.menuStripMain.Text = "menuStripMain";
+            this.groupBoxMain.Controls.Add(this.statusStrip1);
+            this.groupBoxMain.Controls.Add(this.groupBoxList);
+            this.groupBoxMain.Controls.Add(this.groupBoxFields);
+            this.groupBoxMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBoxMain.Location = new System.Drawing.Point(0, 39);
+            this.groupBoxMain.Name = "groupBoxMain";
+            this.groupBoxMain.Size = new System.Drawing.Size(2826, 1488);
+            this.groupBoxMain.TabIndex = 45;
+            this.groupBoxMain.TabStop = false;
+            this.groupBoxMain.Text = "Main";
             // 
-            // mainToolStripMenuItem
+            // statusStrip1
             // 
-            this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNewFlightToolStripMenuItem,
-            this.updateFlightToolStripMenuItem,
-            this.deleteFlightToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
-            this.mainToolStripMenuItem.Text = "File";
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabelDateToday,
+            this.toolStripStatusLabelTimeNow,
+            this.toolStripStatusLabelPerformedActions});
+            this.statusStrip1.Location = new System.Drawing.Point(622, 1447);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(2201, 38);
+            this.statusStrip1.TabIndex = 45;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // createNewFlightToolStripMenuItem
+            // toolStripProgressBar1
             // 
-            this.createNewFlightToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("createNewFlightToolStripMenuItem.Image")));
-            this.createNewFlightToolStripMenuItem.Name = "createNewFlightToolStripMenuItem";
-            this.createNewFlightToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + N";
-            this.createNewFlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.createNewFlightToolStripMenuItem.Size = new System.Drawing.Size(357, 38);
-            this.createNewFlightToolStripMenuItem.Text = "New Flight";
-            this.createNewFlightToolStripMenuItem.Click += new System.EventHandler(this.createNewFlightToolStripMenuItem_Click);
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 32);
             // 
-            // updateFlightToolStripMenuItem
+            // toolStripStatusLabelDateToday
             // 
-            this.updateFlightToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateFlightToolStripMenuItem.Image")));
-            this.updateFlightToolStripMenuItem.Name = "updateFlightToolStripMenuItem";
-            this.updateFlightToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + U";
-            this.updateFlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.updateFlightToolStripMenuItem.Size = new System.Drawing.Size(357, 38);
-            this.updateFlightToolStripMenuItem.Text = "Update Flight";
-            this.updateFlightToolStripMenuItem.Click += new System.EventHandler(this.updateFlightToolStripMenuItem_Click);
+            this.toolStripStatusLabelDateToday.Name = "toolStripStatusLabelDateToday";
+            this.toolStripStatusLabelDateToday.Size = new System.Drawing.Size(338, 33);
+            this.toolStripStatusLabelDateToday.Text = "toolStripStatusLabelDateToday";
             // 
-            // deleteFlightToolStripMenuItem
+            // toolStripStatusLabelTimeNow
             // 
-            this.deleteFlightToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteFlightToolStripMenuItem.Image")));
-            this.deleteFlightToolStripMenuItem.Name = "deleteFlightToolStripMenuItem";
-            this.deleteFlightToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + D";
-            this.deleteFlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.deleteFlightToolStripMenuItem.Size = new System.Drawing.Size(357, 38);
-            this.deleteFlightToolStripMenuItem.Text = "Delete Flight";
-            this.deleteFlightToolStripMenuItem.Click += new System.EventHandler(this.deleteFlightToolStripMenuItem_Click);
+            this.toolStripStatusLabelTimeNow.Name = "toolStripStatusLabelTimeNow";
+            this.toolStripStatusLabelTimeNow.Size = new System.Drawing.Size(327, 33);
+            this.toolStripStatusLabelTimeNow.Text = "toolStripStatusLabelTimeNow";
             // 
-            // toolStripSeparator1
+            // toolStripStatusLabelPerformedActions
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(354, 6);
+            this.toolStripStatusLabelPerformedActions.Name = "toolStripStatusLabelPerformedActions";
+            this.toolStripStatusLabelPerformedActions.Size = new System.Drawing.Size(28, 33);
+            this.toolStripStatusLabelPerformedActions.Text = "0";
             // 
-            // exitToolStripMenuItem
+            // groupBoxList
             // 
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + Shift + E";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.E)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(357, 38);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.groupBoxList.Controls.Add(this.listBox);
+            this.groupBoxList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxList.Location = new System.Drawing.Point(622, 28);
+            this.groupBoxList.Name = "groupBoxList";
+            this.groupBoxList.Size = new System.Drawing.Size(2201, 453);
+            this.groupBoxList.TabIndex = 44;
+            this.groupBoxList.TabStop = false;
+            this.groupBoxList.Text = "List of flights";
             // 
-            // editToolStripMenuItem
+            // groupBoxFields
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem,
-            this.cutToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.deleteToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 38);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.groupBoxFields.Controls.Add(this.textID);
+            this.groupBoxFields.Controls.Add(this.labelID);
+            this.groupBoxFields.Controls.Add(this.labelTooltip);
+            this.groupBoxFields.Controls.Add(this.labelAirline);
+            this.groupBoxFields.Controls.Add(this.deleteButton);
+            this.groupBoxFields.Controls.Add(this.updateButton);
+            this.groupBoxFields.Controls.Add(this.createButton);
+            this.groupBoxFields.Controls.Add(this.labelDepartureTime);
+            this.groupBoxFields.Controls.Add(this.comboBoxAirLine);
+            this.groupBoxFields.Controls.Add(this.labelFlightNumber);
+            this.groupBoxFields.Controls.Add(this.textStatus);
+            this.groupBoxFields.Controls.Add(this.dateTimeLandingTime);
+            this.groupBoxFields.Controls.Add(this.labelStatus);
+            this.groupBoxFields.Controls.Add(this.textFlightNumber);
+            this.groupBoxFields.Controls.Add(this.textFrom);
+            this.groupBoxFields.Controls.Add(this.labelFrom);
+            this.groupBoxFields.Controls.Add(this.labelLandingTime);
+            this.groupBoxFields.Controls.Add(this.textTo);
+            this.groupBoxFields.Controls.Add(this.labelBusinessClassPrice);
+            this.groupBoxFields.Controls.Add(this.labelTo);
+            this.groupBoxFields.Controls.Add(this.numericUpDownBusinessClassPrice);
+            this.groupBoxFields.Controls.Add(this.labelDistance);
+            this.groupBoxFields.Controls.Add(this.labelAircraft);
+            this.groupBoxFields.Controls.Add(this.numericUpDownDistance);
+            this.groupBoxFields.Controls.Add(this.labelFirstClassPrice);
+            this.groupBoxFields.Controls.Add(this.numericUpDownFirstClassPrice);
+            this.groupBoxFields.Controls.Add(this.dateTimeDepartureTime);
+            this.groupBoxFields.Controls.Add(this.textAircraft);
+            this.groupBoxFields.Controls.Add(this.numericUpDownFreeSeats);
+            this.groupBoxFields.Controls.Add(this.labelFreeSeats);
+            this.groupBoxFields.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBoxFields.Location = new System.Drawing.Point(3, 28);
+            this.groupBoxFields.Name = "groupBoxFields";
+            this.groupBoxFields.Size = new System.Drawing.Size(619, 1457);
+            this.groupBoxFields.TabIndex = 43;
+            this.groupBoxFields.TabStop = false;
+            this.groupBoxFields.Text = "Fields";
             // 
-            // copyToolStripMenuItem
+            // notifyIcon1
             // 
-            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + C";
-            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + V";
-            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.pasteToolStripMenuItem.Text = "Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
-            // 
-            // cutToolStripMenuItem
-            // 
-            this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
-            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + X";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.cutToolStripMenuItem.Text = "Cut";
-            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(264, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(267, 38);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fieldsToolStripMenuItem,
-            this.listBoxToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(78, 38);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // fieldsToolStripMenuItem
-            // 
-            this.fieldsToolStripMenuItem.Checked = true;
-            this.fieldsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.fieldsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fieldsToolStripMenuItem.Image")));
-            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(189, 38);
-            this.fieldsToolStripMenuItem.Text = "Fields";
-            this.fieldsToolStripMenuItem.CheckedChanged += new System.EventHandler(this.fieldsToolStripMenuItem_CheckedChanged);
-            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
-            // 
-            // listBoxToolStripMenuItem
-            // 
-            this.listBoxToolStripMenuItem.Checked = true;
-            this.listBoxToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.listBoxToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listBoxToolStripMenuItem.Image")));
-            this.listBoxToolStripMenuItem.Name = "listBoxToolStripMenuItem";
-            this.listBoxToolStripMenuItem.Size = new System.Drawing.Size(189, 38);
-            this.listBoxToolStripMenuItem.Text = "ListBox";
-            this.listBoxToolStripMenuItem.Click += new System.EventHandler(this.listBoxToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.databaseConnectionToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // databaseConnectionToolStripMenuItem
-            // 
-            this.databaseConnectionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("databaseConnectionToolStripMenuItem.Image")));
-            this.databaseConnectionToolStripMenuItem.Name = "databaseConnectionToolStripMenuItem";
-            this.databaseConnectionToolStripMenuItem.Size = new System.Drawing.Size(339, 38);
-            this.databaseConnectionToolStripMenuItem.Text = "Database connection";
-            this.databaseConnectionToolStripMenuItem.Click += new System.EventHandler(this.databaseConnectionToolStripMenuItem_Click_1);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.CheckOnClick = true;
-            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.ShortcutKeyDisplayString = "F1";
-            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(339, 38);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonCreateFlight,
-            this.toolStripButtonUpdateFlight,
-            this.toolStripButtonDelete,
-            this.toolStripSeparator3,
-            this.toolStripButtonCopyText,
-            this.toolStripButtonPasteText,
-            this.toolStripButtonCutText,
-            this.toolStripButtonDeleteText});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 40);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(2826, 39);
-            this.toolStrip1.TabIndex = 44;
-            this.toolStrip1.Text = "toolStripCEU";
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // toolStripButtonCreateFlight
             // 
@@ -775,112 +640,34 @@ namespace FlightsHawk
             this.toolStripButtonDeleteText.Text = "Delete";
             this.toolStripButtonDeleteText.Click += new System.EventHandler(this.toolStripButtonDeleteText_Click);
             // 
-            // groupBoxMain
+            // toolStrip1
             // 
-            this.groupBoxMain.Controls.Add(this.statusStrip1);
-            this.groupBoxMain.Controls.Add(this.groupBoxList);
-            this.groupBoxMain.Controls.Add(this.groupBoxFields);
-            this.groupBoxMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxMain.Location = new System.Drawing.Point(0, 79);
-            this.groupBoxMain.Name = "groupBoxMain";
-            this.groupBoxMain.Size = new System.Drawing.Size(2826, 1448);
-            this.groupBoxMain.TabIndex = 45;
-            this.groupBoxMain.TabStop = false;
-            this.groupBoxMain.Text = "Main";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCreateFlight,
+            this.toolStripButtonUpdateFlight,
+            this.toolStripButtonDelete,
+            this.toolStripSeparator3,
+            this.toolStripButtonCopyText,
+            this.toolStripButtonPasteText,
+            this.toolStripButtonCutText,
+            this.toolStripButtonDeleteText,
+            this.toolStripButtonUpdateView});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(2826, 39);
+            this.toolStrip1.TabIndex = 44;
+            this.toolStrip1.Text = "toolStripCEU";
             // 
-            // statusStrip1
+            // toolStripButtonUpdateView
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1,
-            this.toolStripStatusLabelDateToday,
-            this.toolStripStatusLabelTimeNow,
-            this.toolStripStatusLabelPerformedActions});
-            this.statusStrip1.Location = new System.Drawing.Point(622, 1407);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(2201, 38);
-            this.statusStrip1.TabIndex = 45;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 32);
-            // 
-            // toolStripStatusLabelDateToday
-            // 
-            this.toolStripStatusLabelDateToday.Name = "toolStripStatusLabelDateToday";
-            this.toolStripStatusLabelDateToday.Size = new System.Drawing.Size(338, 33);
-            this.toolStripStatusLabelDateToday.Text = "toolStripStatusLabelDateToday";
-            // 
-            // toolStripStatusLabelTimeNow
-            // 
-            this.toolStripStatusLabelTimeNow.Name = "toolStripStatusLabelTimeNow";
-            this.toolStripStatusLabelTimeNow.Size = new System.Drawing.Size(327, 33);
-            this.toolStripStatusLabelTimeNow.Text = "toolStripStatusLabelTimeNow";
-            // 
-            // toolStripStatusLabelPerformedActions
-            // 
-            this.toolStripStatusLabelPerformedActions.Name = "toolStripStatusLabelPerformedActions";
-            this.toolStripStatusLabelPerformedActions.Size = new System.Drawing.Size(28, 33);
-            this.toolStripStatusLabelPerformedActions.Text = "0";
-            // 
-            // groupBoxList
-            // 
-            this.groupBoxList.Controls.Add(this.listBox);
-            this.groupBoxList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxList.Location = new System.Drawing.Point(622, 28);
-            this.groupBoxList.Name = "groupBoxList";
-            this.groupBoxList.Size = new System.Drawing.Size(2201, 453);
-            this.groupBoxList.TabIndex = 44;
-            this.groupBoxList.TabStop = false;
-            this.groupBoxList.Text = "List of flights";
-            // 
-            // groupBoxFields
-            // 
-            this.groupBoxFields.Controls.Add(this.textID);
-            this.groupBoxFields.Controls.Add(this.labelID);
-            this.groupBoxFields.Controls.Add(this.labelTooltip);
-            this.groupBoxFields.Controls.Add(this.labelAirline);
-            this.groupBoxFields.Controls.Add(this.deleteButton);
-            this.groupBoxFields.Controls.Add(this.updateButton);
-            this.groupBoxFields.Controls.Add(this.createButton);
-            this.groupBoxFields.Controls.Add(this.labelDepartureTime);
-            this.groupBoxFields.Controls.Add(this.comboBoxAirLine);
-            this.groupBoxFields.Controls.Add(this.labelFlightNumber);
-            this.groupBoxFields.Controls.Add(this.textStatus);
-            this.groupBoxFields.Controls.Add(this.dateTimeLandingTime);
-            this.groupBoxFields.Controls.Add(this.labelStatus);
-            this.groupBoxFields.Controls.Add(this.textFlightNumber);
-            this.groupBoxFields.Controls.Add(this.textFrom);
-            this.groupBoxFields.Controls.Add(this.labelFrom);
-            this.groupBoxFields.Controls.Add(this.labelLandingTime);
-            this.groupBoxFields.Controls.Add(this.textTo);
-            this.groupBoxFields.Controls.Add(this.labelBusinessClassPrice);
-            this.groupBoxFields.Controls.Add(this.labelTo);
-            this.groupBoxFields.Controls.Add(this.numericUpDownBusinessClassPrice);
-            this.groupBoxFields.Controls.Add(this.labelDistance);
-            this.groupBoxFields.Controls.Add(this.labelAircraft);
-            this.groupBoxFields.Controls.Add(this.numericUpDownDistance);
-            this.groupBoxFields.Controls.Add(this.labelFirstClassPrice);
-            this.groupBoxFields.Controls.Add(this.numericUpDownFirstClassPrice);
-            this.groupBoxFields.Controls.Add(this.dateTimeDepartureTime);
-            this.groupBoxFields.Controls.Add(this.textAircraft);
-            this.groupBoxFields.Controls.Add(this.numericUpDownFreeSeats);
-            this.groupBoxFields.Controls.Add(this.labelFreeSeats);
-            this.groupBoxFields.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBoxFields.Location = new System.Drawing.Point(3, 28);
-            this.groupBoxFields.Name = "groupBoxFields";
-            this.groupBoxFields.Size = new System.Drawing.Size(619, 1417);
-            this.groupBoxFields.TabIndex = 43;
-            this.groupBoxFields.TabStop = false;
-            this.groupBoxFields.Text = "Fields";
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.toolStripButtonUpdateView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUpdateView.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUpdateView.Image")));
+            this.toolStripButtonUpdateView.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUpdateView.Name = "toolStripButtonUpdateView";
+            this.toolStripButtonUpdateView.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButtonUpdateView.Text = "Update View";
+            this.toolStripButtonUpdateView.Click += new System.EventHandler(this.toolStripButtonUpdateView_Click);
             // 
             // FlightsForm
             // 
@@ -890,9 +677,7 @@ namespace FlightsHawk
             this.ClientSize = new System.Drawing.Size(2826, 1527);
             this.Controls.Add(this.groupBoxMain);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStripMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.MainMenuStrip = this.menuStripMain;
             this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "FlightsForm";
             this.Text = "Vladimir Rodin - FlightHawk Application - WinForms";
@@ -901,10 +686,6 @@ namespace FlightsHawk
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBusinessClassPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFirstClassPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistance)).EndInit();
-            this.menuStripMain.ResumeLayout(false);
-            this.menuStripMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.groupBoxMain.ResumeLayout(false);
             this.groupBoxMain.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -912,6 +693,8 @@ namespace FlightsHawk
             this.groupBoxList.ResumeLayout(false);
             this.groupBoxFields.ResumeLayout(false);
             this.groupBoxFields.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1313,44 +1096,44 @@ namespace FlightsHawk
 
         }
 
-        private int controlFields = 0;
+        //private int controlFields = 0;
 
-        private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (controlFields == 0)
-            {
-                controlFields = 1;
-                fieldsToolStripMenuItem.Checked = false;
-                groupBoxFields.Visible = false;
-            }
-            else
-            {
-                controlFields = 0;
-                fieldsToolStripMenuItem.Checked = true;
-                groupBoxFields.Visible = true;
+        //private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (controlFields == 0)
+        //    {
+        //        controlFields = 1;
+        //        fieldsToolStripMenuItem.Checked = false;
+        //        groupBoxFields.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        controlFields = 0;
+        //        fieldsToolStripMenuItem.Checked = true;
+        //        groupBoxFields.Visible = true;
 
-            }
-        }
+        //    }
+        //}
 
-        private int controlList = 0;
+        //private int controlList = 0;
 
 
-        private void listBoxToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (controlList == 0)
-            {
-                controlList = 1;
-                listBoxToolStripMenuItem.Checked = false;
-                groupBoxList.Visible = false;
-            }
-            else
-            {
-                controlList = 0;
-                listBoxToolStripMenuItem.Checked = true;
-                groupBoxList.Visible = true;
+        //private void listBoxToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (controlList == 0)
+        //    {
+        //        controlList = 1;
+        //        listBoxToolStripMenuItem.Checked = false;
+        //        groupBoxList.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        controlList = 0;
+        //        listBoxToolStripMenuItem.Checked = true;
+        //        groupBoxList.Visible = true;
 
-            }
-        }
+        //    }
+        //}
         
 
         public ToolStripStatusLabel ToolStripStatusLabelTimeNow
@@ -1397,6 +1180,12 @@ namespace FlightsHawk
                 MessageBox.Show("Error to connect to database", "FlightsHawk", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
+        }
+
+        private void toolStripButtonUpdateView_Click(object sender, EventArgs e)
+        {
+            LoadList();
+            IncreaseActions();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace FlightsHawk
         {
             Form childForm = new FlightsForm();
             childForm.MdiParent = this;
-            childForm.Text = "Flights Form Window " + childFormNumber++;
+            childForm.Text = "Flights Form - Window " + childFormNumber++;
             childForm.Show();
         }
 
@@ -56,14 +56,19 @@ namespace FlightsHawk
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Clipboard.SetText(ActiveControl.Text);
+            ActiveControl.ResetText();
         }
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Clipboard.SetText(ActiveControl.Text);
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string text = Clipboard.GetText();
+            ActiveControl.Text = text;
         }
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
