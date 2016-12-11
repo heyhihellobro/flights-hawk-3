@@ -102,5 +102,9 @@ namespace FlightsHawk
         }
         #endregion
 
+        private void logoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

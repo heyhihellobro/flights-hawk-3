@@ -10,6 +10,9 @@ namespace FlightsHawk
 {
     public class FlightsForm : Form
     {
+
+        private string TableName { get; set; }
+
         //
         // Основные используемые компоненты формы
         //
@@ -70,13 +73,21 @@ namespace FlightsHawk
         private ToolStripButton toolStripButtonDeleteText;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButtonUpdateView;
-        private SqlDataReader dataReader;
+        private Panel panel1;
+        //private SqlDataReader dataReader;
 
         //
         // Конструктор по умолчанию
         //
         public FlightsForm()
         {
+            InitializeComponent();
+            displayTime();
+        }
+
+        public FlightsForm(string tableName)
+        {
+            TableName = tableName;
             InitializeComponent();
             displayTime();
         }
@@ -139,6 +150,7 @@ namespace FlightsHawk
             this.toolStripButtonDeleteText = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUpdateView = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFreeSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBusinessClassPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFirstClassPrice)).BeginInit();
@@ -148,6 +160,7 @@ namespace FlightsHawk
             this.groupBoxList.SuspendLayout();
             this.groupBoxFields.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelFlightNumber
@@ -226,7 +239,7 @@ namespace FlightsHawk
             this.listBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBox.Name = "listBox";
             this.listBox.ScrollAlwaysVisible = true;
-            this.listBox.Size = new System.Drawing.Size(2195, 422);
+            this.listBox.Size = new System.Drawing.Size(2195, 1388);
             this.listBox.TabIndex = 11;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -460,9 +473,8 @@ namespace FlightsHawk
             // 
             // groupBoxMain
             // 
+            this.groupBoxMain.Controls.Add(this.panel1);
             this.groupBoxMain.Controls.Add(this.statusStrip1);
-            this.groupBoxMain.Controls.Add(this.groupBoxList);
-            this.groupBoxMain.Controls.Add(this.groupBoxFields);
             this.groupBoxMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxMain.Location = new System.Drawing.Point(0, 39);
@@ -480,9 +492,9 @@ namespace FlightsHawk
             this.toolStripStatusLabelDateToday,
             this.toolStripStatusLabelTimeNow,
             this.toolStripStatusLabelPerformedActions});
-            this.statusStrip1.Location = new System.Drawing.Point(622, 1447);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 1447);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(2201, 38);
+            this.statusStrip1.Size = new System.Drawing.Size(2820, 38);
             this.statusStrip1.TabIndex = 45;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -512,10 +524,10 @@ namespace FlightsHawk
             // groupBoxList
             // 
             this.groupBoxList.Controls.Add(this.listBox);
-            this.groupBoxList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxList.Location = new System.Drawing.Point(622, 28);
+            this.groupBoxList.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBoxList.Location = new System.Drawing.Point(619, 0);
             this.groupBoxList.Name = "groupBoxList";
-            this.groupBoxList.Size = new System.Drawing.Size(2201, 453);
+            this.groupBoxList.Size = new System.Drawing.Size(2201, 1419);
             this.groupBoxList.TabIndex = 44;
             this.groupBoxList.TabStop = false;
             this.groupBoxList.Text = "List of flights";
@@ -553,9 +565,9 @@ namespace FlightsHawk
             this.groupBoxFields.Controls.Add(this.numericUpDownFreeSeats);
             this.groupBoxFields.Controls.Add(this.labelFreeSeats);
             this.groupBoxFields.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBoxFields.Location = new System.Drawing.Point(3, 28);
+            this.groupBoxFields.Location = new System.Drawing.Point(0, 0);
             this.groupBoxFields.Name = "groupBoxFields";
-            this.groupBoxFields.Size = new System.Drawing.Size(619, 1457);
+            this.groupBoxFields.Size = new System.Drawing.Size(619, 1419);
             this.groupBoxFields.TabIndex = 43;
             this.groupBoxFields.TabStop = false;
             this.groupBoxFields.Text = "Fields";
@@ -669,6 +681,17 @@ namespace FlightsHawk
             this.toolStripButtonUpdateView.Text = "Update View";
             this.toolStripButtonUpdateView.Click += new System.EventHandler(this.toolStripButtonUpdateView_Click);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBoxFields);
+            this.panel1.Controls.Add(this.groupBoxList);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(2820, 1419);
+            this.panel1.TabIndex = 46;
+            // 
             // FlightsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -678,6 +701,7 @@ namespace FlightsHawk
             this.Controls.Add(this.groupBoxMain);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "FlightsForm";
             this.Text = "Vladimir Rodin - FlightHawk Application - WinForms";
@@ -695,6 +719,7 @@ namespace FlightsHawk
             this.groupBoxFields.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,27 +730,29 @@ namespace FlightsHawk
         //
         private void createButton_Click(object sender, EventArgs e)
         {
-            CreateNewFlightForm form = new CreateNewFlightForm();
+            CreateNewFlightForm form = new CreateNewFlightForm(TableName);
             form.ShowDialog();
-            LoadList();
+            LoadList(TableName);
         }
 
         //
         // Метод, загружающий все данные из БД
         // Отображает данные в listBox
         //
-        private void LoadList()
+        private void LoadList(string tableName)
         {
             listBox.Items.Clear();
             updateButton.Enabled = false;
 
+            tableName = TableName;
+
             Flight flight = new Flight();
             flight.OpenSqlConection();
 
-            var countAllRows = flight.GetCountAllRows();
+            var countAllRows = flight.GetCountAllRows(tableName);
             for (int id = 1; id <= countAllRows; id++)
             {
-                NameValueCollection temp = flight.GetFlightNVCollection(id);
+                NameValueCollection temp = flight.GetFlightNVCollection(id, tableName);
                 listBox.Items.Add(
                     temp["id"].PadRight(10 - temp["id"].Length) + "\t"
                     + temp["flight_number"].PadRight(20 - temp["flight_number"].Length) + "\t"
@@ -778,14 +805,14 @@ namespace FlightsHawk
                 MessageBoxButtons.YesNo);
 
             if (confirmResult != DialogResult.Yes || textID.Text == "") return;
-
+            //todo 
             String deleteSqlQuery = "DELETE FROM FLIGHTS WHERE id = '" + textID.Text + "'";
             Flight flight = new Flight();
             flight.CustomSqlQuery(deleteSqlQuery);
             MessageBox.Show(@"Flight was deleted!", @"Deleting Flight");
 
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
             IncreaseActions();
         }
 
@@ -847,15 +874,15 @@ namespace FlightsHawk
             flight.CustomSqlQuery(updateSqlCommand);
             MessageBox.Show(@"Flight was updated!", @"Updating Flight");
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
             IncreaseActions();
         }
 
         private void toolStripButtonCreateFlight_Click(object sender, EventArgs e)
         {
-            CreateNewFlightForm form = new CreateNewFlightForm();
+            CreateNewFlightForm form = new CreateNewFlightForm(TableName);
             form.ShowDialog();
-            LoadList();
+            LoadList(TableName);
 
         }
 
@@ -900,7 +927,7 @@ namespace FlightsHawk
             flight.CustomSqlQuery(updateSqlCommand);
             MessageBox.Show(@"Flight was updated!", @"Updating Flight");
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
@@ -917,13 +944,13 @@ namespace FlightsHawk
             MessageBox.Show(@"Flight was deleted!", @"Deleting Flight");
 
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void FlightsForm_Load(object sender, EventArgs e)
         {
             Flight flights = new Flight();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -942,7 +969,7 @@ namespace FlightsHawk
                 rowIndex++; //так как индексы начинаются с 0, инкрементим
                 Flight flight = new Flight();
                 flight.OpenSqlConection();
-                NameValueCollection temp = flight.GetFlightNVCollection(rowIndex);
+                NameValueCollection temp = flight.GetFlightNVCollection(rowIndex, "FLIGHTS");
 
                 textID.Text = temp["id"];
                 textFlightNumber.Text = temp["flight_number"];
@@ -967,11 +994,11 @@ namespace FlightsHawk
 
             IncreaseActions();
             progressStart();
-            CreateNewFlightForm form = new CreateNewFlightForm();
+            CreateNewFlightForm form = new CreateNewFlightForm(TableName);
             progressRefresh();
 
             form.ShowDialog();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void updateFlightToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1015,7 +1042,7 @@ namespace FlightsHawk
             flight.CustomSqlQuery(updateSqlCommand);
             MessageBox.Show(@"Flight was updated!", @"Updating Flight");
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void deleteFlightToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1032,7 +1059,7 @@ namespace FlightsHawk
             MessageBox.Show(@"Flight was deleted!", @"Deleting Flight");
 
             RefreshFields();
-            LoadList();
+            LoadList(TableName);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1184,7 +1211,7 @@ namespace FlightsHawk
 
         private void toolStripButtonUpdateView_Click(object sender, EventArgs e)
         {
-            LoadList();
+            LoadList(TableName);
             IncreaseActions();
         }
     }

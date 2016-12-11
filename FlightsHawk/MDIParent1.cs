@@ -19,22 +19,46 @@ namespace FlightsHawk
             InitializeComponent();
         }
 
+
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new FlightsForm();
-            childForm.MdiParent = this;
-            childForm.Text = "Flights Form - Window " + childFormNumber++;
-            childForm.Show();
+
+            string tableName = Prompt.ShowDialog("Enter the name of the table", "Creating new flights table");
+
+            if (!string.IsNullOrEmpty(tableName))
+            {
+                Flight flight = new Flight();
+                flight.CreateNewFlightTable(tableName);
+                MessageBox.Show(@"Flight table " + tableName + " was successfully created!");
+            }
+            else
+            {
+                MessageBox.Show(@"Enter the name of the flight");
+            }
+
+
+            //Form childForm = new FlightsForm();
+            //childForm.MdiParent = this;
+            //childForm.Text = "Flights Form - Window " + childFormNumber++;
+            //childForm.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            string tableName = Prompt.ShowDialog("Enter the name of the table that you want to open", "Open flight table");
+
+
+            if (!string.IsNullOrEmpty(tableName))
             {
-                string FileName = openFileDialog.FileName;
+                Form childForm = new FlightsForm(tableName);
+                childForm.MdiParent = this;
+                childForm.Text = "Flights Form - Window " + childFormNumber++ + " - " + tableName;
+                childForm.Show();
+
+            }
+            else
+            {
+                MessageBox.Show(@"Enter the name of the flight");
             }
         }
 
@@ -107,6 +131,17 @@ namespace FlightsHawk
             {
                 childForm.Close();
             }
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
         }
     }
 }

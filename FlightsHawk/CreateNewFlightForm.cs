@@ -29,6 +29,8 @@ namespace FlightsHawk
         private TextBox textFlightNumber;
         private ComboBox comboBoxAirLine;
 
+        public string TableName { get; set; }
+
         private DateTimePicker dateTimeDepartureTime;
         private DateTimePicker dateTimeLandingTime;
 
@@ -50,12 +52,14 @@ namespace FlightsHawk
         private SqlDataReader dataReader;
 
 
-        public CreateNewFlightForm()
+        public CreateNewFlightForm(string tableName)
         {
             InitializeComponent();
 
+            TableName = tableName;
+
             conection.Open();
-            command.CommandText = "SELECT TOP 1 id FROM FLIGHTS ORDER BY id DESC";
+            command.CommandText = "SELECT TOP 1 id FROM " + tableName + " ORDER BY id DESC";
             command.Connection = conection; //при инициализации формы производим коннект к БД
             dataReader = command.ExecuteReader();
 
@@ -337,6 +341,7 @@ namespace FlightsHawk
             this.buttonCreateNewFlight.TabIndex = 60;
             this.buttonCreateNewFlight.Text = "Create new Fligth";
             this.buttonCreateNewFlight.UseVisualStyleBackColor = true;
+            this.buttonCreateNewFlight.Click += new System.EventHandler(this.buttonCreateNewFlight_Click);
             // 
             // labelBusinessClassPrice
             // 
@@ -409,10 +414,8 @@ namespace FlightsHawk
 
         }
 
-        //
-        // Метод, позволяющий создать новый полет
-        //
-        private void buttonNewFlight_Click(object sender, EventArgs e)
+
+        private void buttonCreateNewFlight_Click(object sender, EventArgs e)
         {
             if (textID.Text != "" & textFlightNumber.Text != "")
             {
@@ -437,7 +440,7 @@ namespace FlightsHawk
                 conection.Open();
                 command.Connection = conection; //при инициализации формы производим коннект к БД
 
-                String createSqlCommand = "INSERT INTO FLIGHTS (id, flight_number," +
+                String createSqlCommand = "INSERT INTO " + TableName +" (id, flight_number," +
                                           " aircraft, departure_time, landing_time, " +
                                           "status, departure, destination, airline, free_seats, " +
                                           "business_class_price, first_class_price, distance) " +
@@ -464,7 +467,10 @@ namespace FlightsHawk
 
                 Close();
             }
+            else
+            {
+                // проверочку и вывод сообщения об ошибке
+            }
         }
-        
     }
 }

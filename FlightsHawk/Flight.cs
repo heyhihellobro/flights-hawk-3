@@ -11,6 +11,7 @@ namespace FlightsHawk
 {
     public class Flight
     {
+
         private int id;
         private string flight_number;
         private string aircraft;
@@ -57,14 +58,19 @@ namespace FlightsHawk
             free_seats = 1;
         }
 
-        public NameValueCollection GetFlightNVCollection(int id)
+
+        
+
+        public NameValueCollection GetFlightNVCollection(int id, string tableName)
         {
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             command.Connection = connection;
             connection.Open();
 
-            string query = "SELECT * FROM Flights WHERE ID = '" + id.ToString() + "';";
+            //tableName = TableName;
+
+            string query = "SELECT * FROM " + tableName + " WHERE ID = '" + id.ToString() + "';";
 
             NameValueCollection data = new NameValueCollection();
 
@@ -110,9 +116,12 @@ namespace FlightsHawk
             return data;
         }
 
-        public int GetCountAllRows()
+        public int GetCountAllRows(string tableName)
         {
-            string query = "SELECT COUNT(*) FROM FLIGHTS";
+
+            //tableName = TableName;
+
+            string query = "SELECT COUNT(*) FROM " + tableName;
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             command.Connection = connection;
@@ -166,6 +175,24 @@ namespace FlightsHawk
         //
         public void CloseSqlConnection()
         {
+            connection.Close();
+        }
+
+        public void CreateNewFlightTable(string tableName)
+        {
+
+            //tableName = TableName;
+
+            connection = new SqlConnection(connectionString);
+            command = new SqlCommand();
+            command.Connection = connection;
+            connection.Open();
+
+            string query =
+                "CREATE TABLE " + tableName  + "(id INT NOT NULL,flight_number NVARCHAR(50),aircraft NVARCHAR(50),departure_time DATETIME,landing_time DATETIME,status NVARCHAR(20),departure NVARCHAR(30),destination NVARCHAR(30),airline NVARCHAR(30),free_seats INT,business_class_price FLOAT,first_class_price FLOAT,distance FLOAT);";
+
+            command.CommandText = query;
+            command.ExecuteNonQuery();
             connection.Close();
         }
 
